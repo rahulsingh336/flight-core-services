@@ -35,14 +35,14 @@ public class FlightSearchAPITest {
 
 		SearchRequest searchRequest = new SearchRequest();
 
-		EntityExchangeResult<SearchResponse> response = client.post().uri("/v1/flight").body(BodyInserters.fromValue(searchRequest))
+		EntityExchangeResult<SearchResponse> response = client.post().uri("/flight").body(BodyInserters.fromValue(searchRequest))
 				.exchange()
 				.expectStatus()
 				.is2xxSuccessful()
 				.expectBody(SearchResponse.class)
 		        .returnResult();
 
-		//Assertions.assertEquals("DUMMY_FLIGHT_NUMBER", response.getResponseBody().getFlightNumber());
+		Assertions.assertEquals("DUMMY_FLIGHT_NUMBER", response.getResponseBody().getFlightNumber());
 	}
 
 

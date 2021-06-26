@@ -1,4 +1,4 @@
-package com.emirates.flight.search.controller;
+package com.emirates.flight.search.handler;
 
 import com.emirates.flight.search.dto.SearchRequest;
 import com.emirates.flight.search.dto.SearchResponse;
