@@ -17,11 +17,11 @@ import org.springframework.web.reactive.function.BodyInserters;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-@AutoConfigureStubRunner(ids = {"com.devskiller.micro:emirates-search-service:+:stubs"
-								,"com.devskiller.micro:aggregator-service:+:stubs"
-								,"com.devskiller.micro:discount-service:+:stubs"
-								,"com.devskiller.micro:notification-service:+:stubs"
-								,"com.devskiller.micro:sales-service:+:stubs"})
+@AutoConfigureStubRunner(ids = {"com.emirates.micro:emirates-search-service:+:stubs"
+								,"com.emirates.micro:aggregator-service:+:stubs"
+								,"com.emirates.micro:discount-service:+:stubs"
+								,"com.emirates.micro:notification-service:+:stubs"
+								,"com.emirates.micro:sales-service:+:stubs"})
 public class FlightSearchAPITest {
 
 	@Autowired

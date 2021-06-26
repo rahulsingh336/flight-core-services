@@ -3,7 +3,7 @@ server:
 
 spring:
     application:
-        name: search-service
+        name: price-service
     mvc:
         log-request-details: true
     cloud:

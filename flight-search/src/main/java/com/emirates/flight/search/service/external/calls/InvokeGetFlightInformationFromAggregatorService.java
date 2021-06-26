@@ -2,6 +2,7 @@ package com.emirates.flight.search.service.external.calls;
 
 import com.emirates.flight.search.dto.SearchRequest;
 import com.emirates.flight.search.dto.SearchResponse;
+import com.emirates.flight.search.helper.ExternalURL;
 import com.emirates.flight.search.helper.RandomNumberGenerator;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,8 +15,6 @@ import reactor.core.publisher.Mono;
 import reactor.core.scheduler.Schedulers;
 
 import java.time.Duration;
-
-import static com.emirates.flight.search.helper.ExternalURL.AGGREGATOR_SEARCH_URL;
 
 @Component
 @Slf4j
@@ -31,7 +30,7 @@ public class InvokeGetFlightInformationFromAggregatorService extends AbstractInv
 	public Mono<SearchResponse> getFlightInformationFromAggregator(SearchRequest searchRequest) {
 		log.info(String.format("Calling getFlightInformationFromAggregator(%s)", searchRequest.toString()));
 		return getWebClient().post()
-				.uri(AGGREGATOR_SEARCH_URL.getValue())
+				.uri(ExternalURL.AGGREGATOR_SEARCH_URL.getValue())
 				.accept(MediaType.APPLICATION_JSON)
 				.body(BodyInserters.fromValue(searchRequest))
 				.retrieve()

@@ -2,6 +2,7 @@ package com.emirates.flight.search.service.external.calls;
 
 import com.emirates.flight.search.dto.GetAllFlightsResponse;
 import com.emirates.flight.search.dto.SearchRequest;
+import com.emirates.flight.search.helper.ExternalURL;
 import com.emirates.flight.search.helper.RandomNumberGenerator;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,8 +15,6 @@ import reactor.core.publisher.Mono;
 import reactor.core.scheduler.Schedulers;
 
 import java.time.Duration;
-
-import static com.emirates.flight.search.helper.ExternalURL.GET_ALL_FLIGHTS_URL;
 
 @Component
 @Slf4j
@@ -32,7 +31,7 @@ public class InvokeGetAllFlightInformationService extends AbstractInvoker {
 		log.info(String.format("Calling getAllFlightInformation(%s)", searchRequest.toString()));
 
 		return getWebClient().post()
-				.uri(GET_ALL_FLIGHTS_URL.getValue())
+				.uri(ExternalURL.GET_ALL_FLIGHTS_URL.getValue())
 				.body(BodyInserters.fromValue(searchRequest))
 				.accept(MediaType.APPLICATION_JSON)
 				.retrieve()

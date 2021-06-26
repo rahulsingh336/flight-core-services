@@ -26,6 +26,6 @@ public class SearchHandler {
 				.flatMap(resp -> ServerResponse.ok()
 						.contentType(MediaType.APPLICATION_JSON)
 						.body(BodyInserters.fromValue(resp)))
-						.switchIfEmpty(ServerResponse.badRequest().build());
+						.switchIfEmpty(ServerResponse.noContent().build());
 	}
 }

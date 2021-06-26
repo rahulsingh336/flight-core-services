@@ -1,6 +1,7 @@
 package com.emirates.flight.search.service.external.calls;
 
 import com.emirates.flight.search.dto.SearchRequest;
+import com.emirates.flight.search.helper.ExternalURL;
 import com.emirates.flight.search.helper.RandomNumberGenerator;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,9 +14,6 @@ import reactor.core.publisher.Mono;
 import reactor.core.scheduler.Schedulers;
 
 import java.time.Duration;
-import java.util.concurrent.ThreadLocalRandom;
-
-import static com.emirates.flight.search.helper.ExternalURL.NOTIFICATIONS_CHAT_URL;
 
 @Component
 @Slf4j
@@ -31,7 +29,7 @@ public class InvokesendNotificationForChatService extends AbstractInvoker{
 	public Mono sendNotificationForChat(SearchRequest searchRequest) {
 		log.info(String.format("Calling sendNotificationForChat(%s)", searchRequest.toString()));
 		return getWebClient().post()
-				.uri(NOTIFICATIONS_CHAT_URL.getValue())
+				.uri(ExternalURL.NOTIFICATIONS_CHAT_URL.getValue())
 				.accept(MediaType.APPLICATION_JSON)
 				.body(BodyInserters.fromValue(searchRequest))
 				.retrieve()

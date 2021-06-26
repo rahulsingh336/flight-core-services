@@ -1,6 +1,7 @@
 package com.emirates.flight.search.service.external.calls;
 
 import com.emirates.flight.search.dto.SearchRequest;
+import com.emirates.flight.search.helper.ExternalURL;
 import com.emirates.flight.search.helper.RandomNumberGenerator;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,8 +14,6 @@ import reactor.core.publisher.Mono;
 import reactor.core.scheduler.Schedulers;
 
 import java.time.Duration;
-
-import static com.emirates.flight.search.helper.ExternalURL.SALES_JOURNEY_TRACKER_URL;
 
 @Component
 @Slf4j
@@ -30,7 +29,7 @@ public class InvokepostToSalesServiceService extends AbstractInvoker{
 	public Mono postToSalesService(SearchRequest searchRequest) {
 		log.info(String.format("Calling postToSalesService(%s)", searchRequest.toString()));
 		return getWebClient().post()
-				.uri(SALES_JOURNEY_TRACKER_URL.getValue())
+				.uri(ExternalURL.SALES_JOURNEY_TRACKER_URL.getValue())
 				.accept(MediaType.APPLICATION_JSON)
 				.body(BodyInserters.fromValue(searchRequest))
 				.retrieve()
