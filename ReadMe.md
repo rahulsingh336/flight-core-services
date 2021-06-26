@@ -11,8 +11,8 @@
 
 ## For calling flight search api, use below contract
 
-# URL :- http://localhost:{REPLACE-WITH-PORT-FROM-CONSOLE}/flight
-# HTTP Method :- POST
+### URL :- http://localhost:{REPLACE-WITH-PORT-FROM-CONSOLE}/flight
+### HTTP Method :- POST
 `{
  "fromDate" :"2018-10-22",
  "toDate": "2018-10-22",
@@ -22,8 +22,8 @@
 
 ## For calling price search api, use below contract
 
-# URL :- http://localhost:{REPLACE-WITH-PORT-FROM-CONSOLE}/price
-# HTTP Method :- POST 
+### URL :- http://localhost:{REPLACE-WITH-PORT-FROM-CONSOLE}/price
+### HTTP Method :- POST 
 `{
  "date" :"2021-06-26",
  "flightNumber": "AB-1"
