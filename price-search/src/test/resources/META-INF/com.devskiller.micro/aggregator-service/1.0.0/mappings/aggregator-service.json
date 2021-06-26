@@ -1,0 +1,22 @@
+{
+  "id" : "3a8b10dc-4e05-48e7-8313-76845dabcfe9",
+  "request" : {
+    "url" : "/aggregator/search",
+    "method" : "POST",
+    "headers" : {
+      "Accept" : {
+        "matches" : "application/json"
+      }
+    }
+  },
+  "response" : {
+    "status" : 200,
+    "body" : "{\"flightNumber\":\"DUMMY_FLIGHT_NUMBER\"}",
+    "headers" : {
+      "Content-Type" : "application/json"
+    },
+    "transformers" : [ "response-template" ],
+    "fixedDelayMilliseconds" : 1
+  },
+  "uuid" : "3a8b10dc-4e05-48e7-8313-76845dabcfe9"
+}
