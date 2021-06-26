@@ -25,6 +25,7 @@ public class SearchHandler {
 				.flatMap(sf -> searchService.getFlightNumber(sf))
 				.flatMap(resp -> ServerResponse.ok()
 						.contentType(MediaType.APPLICATION_JSON)
-						.body(BodyInserters.fromValue(resp)));
+						.body(BodyInserters.fromValue(resp)))
+						.switchIfEmpty(ServerResponse.badRequest().build());
 	}
 }
